@@ -15,8 +15,8 @@ test('simple', function (t) {
   var a = rpc(null, true)
   b = rpc(null, true)
 
-  a.createLocalCall('echo', function (args, cb) {
-    cb(null, args)
+  a.createLocalCall('echo', function (r1, r2, cb) {
+      cb(null, [r1, r2])
   })
 
   var echo = b.createRemoteCall('echo')
